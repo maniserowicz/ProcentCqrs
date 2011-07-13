@@ -39,14 +39,13 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Trainings\AddTrainingCommand.cs" />
     <Compile Include="EventsCommandsBus.cs" />
+    <Compile Include="Events\Trainings\TrainingWasAdded.cs" />
     <Compile Include="MessageInterfaces.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\" />
-    <Folder Include="Events\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{5C7F4D2A-A702-498D-AFE1-7C249CE9029A}</Project>
