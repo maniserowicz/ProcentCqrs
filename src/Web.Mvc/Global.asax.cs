@@ -6,7 +6,7 @@ using Autofac.Integration.Mvc;
 using ProcentCqrs.Infrastructure.IoC.Autofac;
 using ProcentCqrs.Infrastructure.Startup;
 
-namespace Web.Mvc
+namespace ProcentCqrs.Web.Mvc
 {
     public class MvcApplication : System.Web.HttpApplication
     {

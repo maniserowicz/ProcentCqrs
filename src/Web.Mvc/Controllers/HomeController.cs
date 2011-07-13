@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using ProcentCqrs.Web.Mvc.MvcExtensions;
 
-namespace Web.Mvc.Controllers
+namespace ProcentCqrs.Web.Mvc.Controllers
 {
     public class HomeController : CqrsController
     {
