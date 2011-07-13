@@ -1,0 +1,18 @@
+﻿@using ProcentCqrs.Web.Mvc.Controllers
+@model UsersController.UsersIndexModel
+
+@{
+    ViewBag.Title = "All Users";
+}
+
+@Html.Action(MVC.Users.RenderAdd())
+
+<h2>All Users</h2>
+
+<table>
+<thead><tr><th>Id</th><th>email</th><th>first name</th><th>last name</th></tr></thead>
+@foreach (var u in Model.AllUsers)
+{
+    <tr><td>@u.Id</td><td>@u.Email</td><td>@u.FirstName</td><td>@u.LastName</td></tr>
+}
+</table>

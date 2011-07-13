@@ -25,6 +25,7 @@ using T4MVC;
 public static class MVC {
     public static ProcentCqrs.Web.Mvc.Controllers.HomeController Home = new ProcentCqrs.Web.Mvc.Controllers.T4MVC_HomeController();
     public static ProcentCqrs.Web.Mvc.Controllers.TrainingsController Trainings = new ProcentCqrs.Web.Mvc.Controllers.T4MVC_TrainingsController();
+    public static ProcentCqrs.Web.Mvc.Controllers.UsersController Users = new ProcentCqrs.Web.Mvc.Controllers.T4MVC_UsersController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
 }
 
@@ -488,6 +489,77 @@ namespace ProcentCqrs.Web.Mvc.Controllers {
         }
 
         public override System.Web.Mvc.ActionResult Add(ProcentCqrs.Web.Mvc.Controllers.TrainingsController.TrainingsAddModel model) {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Add);
+            callInfo.RouteValueDictionary.Add("model", model);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Index() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Index);
+            return callInfo;
+        }
+
+    }
+}
+
+namespace ProcentCqrs.Web.Mvc.Controllers {
+    public partial class UsersController {
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public UsersController() { }
+
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        protected UsersController(Dummy d) { }
+
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        protected RedirectToRouteResult RedirectToAction(ActionResult result) {
+            var callInfo = result.GetT4MVCResult();
+            return RedirectToRoute(callInfo.RouteValueDictionary);
+        }
+
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public System.Web.Mvc.ActionResult Add() {
+            return new T4MVC_ActionResult(Area, Name, ActionNames.Add);
+        }
+
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public UsersController Actions { get { return MVC.Users; } }
+        [GeneratedCode("T4MVC", "2.0")]
+        public readonly string Area = "";
+        [GeneratedCode("T4MVC", "2.0")]
+        public readonly string Name = "Users";
+
+        static readonly ActionNamesClass s_actions = new ActionNamesClass();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ActionNamesClass ActionNames { get { return s_actions; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ActionNamesClass {
+            public readonly string RenderAdd = "RenderAdd";
+            public readonly string Add = "Add";
+            public readonly string Index = "Index";
+        }
+
+
+        static readonly ViewNames s_views = new ViewNames();
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public ViewNames Views { get { return s_views; } }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public class ViewNames {
+            public readonly string AddUserPanel = "~/Views/Users/AddUserPanel.cshtml";
+            public readonly string Index = "~/Views/Users/Index.cshtml";
+        }
+    }
+
+    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+    public class T4MVC_UsersController: ProcentCqrs.Web.Mvc.Controllers.UsersController {
+        public T4MVC_UsersController() : base(Dummy.Instance) { }
+
+        public override System.Web.Mvc.ActionResult RenderAdd() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.RenderAdd);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Add(ProcentCqrs.Web.Mvc.Controllers.UsersController.UsersAddModel model) {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Add);
             callInfo.RouteValueDictionary.Add("model", model);
             return callInfo;

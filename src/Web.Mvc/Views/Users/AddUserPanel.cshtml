@@ -1,0 +1,11 @@
+﻿@using ProcentCqrs.Web.Mvc.Controllers
+@model UsersController.UsersAddModel
+
+<h2>Add user</h2>
+
+@using(Html.BeginForm(MVC.Users.Add(), FormMethod.Post))
+{
+    @Html.EditorForModel();
+    
+    <input type="submit" value="Create" />
+}

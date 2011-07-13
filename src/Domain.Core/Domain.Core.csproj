@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\Trainings\AddTrainingCommand.cs" />
+    <Compile Include="Commands\Users\AddUserCommand.cs" />
     <Compile Include="EventsCommandsBus.cs" />
     <Compile Include="Events\Trainings\TrainingWasAdded.cs" />
+    <Compile Include="Events\Users\TrainingWasAdded.cs" />
     <Compile Include="MessageInterfaces.cs" />
     <Compile Include="Notifications\FakeNotifier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
