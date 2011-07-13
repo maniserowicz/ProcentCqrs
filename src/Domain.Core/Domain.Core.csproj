@@ -34,6 +34,7 @@
     <Reference Include="Autofac">
       <HintPath>..\..\lib\Autofac-2.5.1.827-NET40\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,6 +44,7 @@
     <Compile Include="EventsCommandsBus.cs" />
     <Compile Include="Events\Trainings\TrainingWasAdded.cs" />
     <Compile Include="MessageInterfaces.cs" />
+    <Compile Include="Notifications\FakeNotifier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
