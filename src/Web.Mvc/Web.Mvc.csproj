@@ -122,6 +122,14 @@
       <Project>{990A840D-BBF6-4071-8A69-F754322F3120}</Project>
       <Name>Domain.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Domain.Trainings\Domain.Trainings.csproj">
+      <Project>{2DB540A8-95BB-4CAB-9114-6FAD2E220CD8}</Project>
+      <Name>Domain.Trainings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Users\Domain.Users.csproj">
+      <Project>{B7100D87-B716-40CF-804D-C4741DDDEA94}</Project>
+      <Name>Domain.Users</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{8679D5A0-C03C-44B3-B78E-DA93E6948447}</Project>
       <Name>Infrastructure</Name>
