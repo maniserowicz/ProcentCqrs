@@ -1,0 +1,15 @@
+﻿@model ProcentCqrs.Web.Mvc.Controllers.TrainingsController.TrainingsIndexModel
+
+@{
+    ViewBag.Title = "All trainings";
+}
+
+<h2>All trainings</h2>
+
+<table>
+<thead><tr><th>Id</th><th>Name</th><th>Users count</th></tr></thead>
+@foreach (var t in Model.AllTrainings)
+{
+    <tr><td>@t.Id</td><td>@t.Name</td><td>@t.UsersCount</td></tr>
+}
+</table>
