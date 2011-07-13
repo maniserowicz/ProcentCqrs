@@ -116,6 +116,28 @@
     <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Catalogs\" />
     <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Functions\" />
     <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Schemes\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Tables\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Views\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\readmodel\Views\Statistics\" />
   </ItemGroup>
   <ItemGroup>
     <PropertiesFile Include="Properties\Database.sqlsettings">
@@ -145,6 +167,12 @@
       <SubType>Code</SubType>
     </Build>
     <Build Include="Schema Objects\Schemas\dbo\Tables\dbo.UserTrainings.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\readmodel.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\readmodel\Views\readmodel.TrainingsForTrainingsIndex.view.sql">
       <SubType>Code</SubType>
     </Build>
   </ItemGroup>
