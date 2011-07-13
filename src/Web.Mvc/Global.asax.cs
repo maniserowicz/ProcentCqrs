@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Autofac;
+using Autofac.Integration.Mvc;
+using ProcentCqrs.Infrastructure.IoC.Autofac;
 
 namespace Web.Mvc
 {
-    // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
-    // visit http://go.microsoft.com/?LinkId=9394801
-
     public class MvcApplication : System.Web.HttpApplication
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -35,6 +32,30 @@ namespace Web.Mvc
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+
+            ConfigureIoC();
+        }
+
+        private void ConfigureIoC()
+        {
+            string binDirectory = HttpRuntime.BinDirectory;
+
+            IoC.Configure(binDirectory,
+                builder => builder.RegisterModule(new AutofacWebTypesModule()),
+                () =>
+                    {
+                        ILifetimeScope externalScope = null;
+                        // return context-scoped container if runinng in MVC application
+                        var resolver = DependencyResolver.Current as AutofacDependencyResolver;
+                        if (resolver != null && HttpContext.Current != null)
+                        {
+                            externalScope = resolver.RequestLifetimeScope;
+                        }
+                        return externalScope;
+                    }
+                );
+
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(IoC.Container));
         }
     }
 }
