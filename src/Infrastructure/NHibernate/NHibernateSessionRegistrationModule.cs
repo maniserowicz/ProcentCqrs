@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using Autofac.Integration.Mvc;
 using NHibernate;
 
 namespace ProcentCqrs.Infrastructure.NHibernate
@@ -12,10 +11,11 @@ namespace ProcentCqrs.Infrastructure.NHibernate
                 c.Resolve<INHibernateSessionProvider>().OpenSession()
             )
             .As<ISession>()
-
-            // i don't really like having this here, but i'd rather do this
-            // than register NH in IoC in MVC app
-            .InstancePerHttpRequest();
+            // without CQRS InstancePerHttpRequest() was needed here
+            // but now only a single command uses NH session
+            // so there is no need to register per request...
+            // which makes everything clearer - no need to reference MVC-related stuff in Infrastructure project anymore
+            .InstancePerDependency();
         }
     }
 }

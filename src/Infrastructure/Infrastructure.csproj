@@ -34,9 +34,6 @@
     <Reference Include="Autofac">
       <HintPath>..\..\lib\Autofac-2.5.1.827-NET40\Autofac.dll</HintPath>
     </Reference>
-    <Reference Include="Autofac.Integration.Mvc">
-      <HintPath>..\..\lib\Autofac-2.5.1.827-NET40\Autofac.Integration.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\..\lib\NHibernate-3.2.0.CR1-bin\Iesi.Collections.dll</HintPath>
     </Reference>
