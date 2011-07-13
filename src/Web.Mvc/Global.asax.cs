@@ -3,8 +3,8 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Mvc;
-using NLog;
 using ProcentCqrs.Infrastructure.IoC.Autofac;
+using ProcentCqrs.Infrastructure.Startup;
 
 namespace Web.Mvc
 {
@@ -35,6 +35,14 @@ namespace Web.Mvc
             RegisterRoutes(RouteTable.Routes);
 
             ConfigureIoC();
+
+            PerformStartup();
+        }
+
+        private void PerformStartup()
+        {
+            var appStarter = IoC.Container.Resolve<IAppStarter>();
+            appStarter.Start();
         }
 
         private void ConfigureIoC()
