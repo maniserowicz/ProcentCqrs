@@ -8,6 +8,8 @@
         private string _firstName;
         private string _lastName;
 
+        protected User() { }
+
         public User(string email, string firstName, string lastName)
         {
             _email = email;

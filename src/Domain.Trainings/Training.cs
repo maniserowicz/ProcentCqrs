@@ -8,6 +8,8 @@ namespace ProcentCqrs.Domain.Trainings
         private string _name;
         private IList<TrainingAssignment> _trainees = new List<TrainingAssignment>();
 
+        protected Training() { }
+
         public Training(string name)
         {
             _name = name;
