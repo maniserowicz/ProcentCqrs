@@ -12,7 +12,7 @@ For now I am _not_ going to implement event sourcing, as I probably won't be abl
 
 My main current issue:
 
- * how do I test domain if there are no public getters/setters? idea: run a command handler in 
+ * how do I test domain if there are no public getters/setters? idea: run a command handler in test, then fetch appropriate read model and verify fields there... but that kinda sucks - I should test behavior, not state transition (?), especially in very simple instructions (like user.ChangeName()) that do not affect system logic
 
 Further development ideas:
 
