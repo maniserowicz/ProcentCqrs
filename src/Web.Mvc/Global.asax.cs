@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Mvc;
+using NLog;
 using ProcentCqrs.Infrastructure.IoC.Autofac;
 
 namespace Web.Mvc
