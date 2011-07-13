@@ -12,6 +12,14 @@ namespace ProcentCqrs.Infrastructure.NHibernate
         ISession OpenSession();
     }
 
+    /// <summary>
+    /// Opens a new NH session using preconfigured SessionFactory
+    /// </summary>
+    /// <remarks>
+    /// Some might say that this (and everything else related to NH) belongs to another .DataAccess project.
+    /// In my opinion however NHibernate IS my DataAccess. What I am doing here is simply USING it.
+    /// So session management, registration in IoC, even XML mappings, are considered infrastructure.
+    /// </remarks>
     public class NHibernateSessionProvider : INHibernateSessionProvider
     {
         private static ISessionFactory _sessionFactory;

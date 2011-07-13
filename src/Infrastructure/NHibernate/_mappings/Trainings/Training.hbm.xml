@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="ProcentCqrs.Domain.Trainings"
+                   namespace="ProcentCqrs.Domain.Trainings"
+                   >
+    <class name="Training" table="Trainings">
+        <id type="int" name="_id" access="field" unsaved-value="0">
+            <column name="Id" />
+            <generator class="identity"></generator>
+        </id>
+        <property name="_name" column="Name" access="field"/>
+        
+        <bag name="_trainees" cascade="all" access="field" inverse="true">
+            <key column="TrainingId" not-null="true"/>
+            <one-to-many class="TrainingAssignment"/>
+        </bag>
+    </class>
+</hibernate-mapping>
