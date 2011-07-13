@@ -75,6 +75,7 @@
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Trainings\Add.cs" />
+    <Compile Include="Controllers\Trainings\AssignUser.cs" />
     <Compile Include="Controllers\Trainings\Details.cs" />
     <Compile Include="Controllers\Trainings\Index.cs" />
     <Compile Include="Controllers\Users\Add.cs" />
@@ -168,6 +169,7 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\AddUserPanel.cshtml" />
     <Content Include="Views\Trainings\Details.cshtml" />
+    <Content Include="Views\Trainings\AssignUserToTrainingPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

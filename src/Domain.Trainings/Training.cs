@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ProcentCqrs.Domain.Trainings
 {
@@ -13,6 +14,12 @@ namespace ProcentCqrs.Domain.Trainings
         public Training(string name)
         {
             _name = name;
+        }
+
+        public virtual TrainingAssignment AssignTrainee(Trainee trainee)
+        {
+            var newAssignment = new TrainingAssignment(this, trainee, DateTime.UtcNow);
+            return newAssignment;
         }
     }
 }

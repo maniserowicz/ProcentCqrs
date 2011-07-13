@@ -1,0 +1,9 @@
+﻿@using ProcentCqrs.Web.Mvc.Controllers
+@model TrainingsController.TrainingsAssignUserModel
+
+@using (Html.BeginForm(MVC.Trainings.AssignUser(), FormMethod.Post))
+{
+    @Html.EditorForModel()
+    
+    <input type="submit" value="Assign" />
+}

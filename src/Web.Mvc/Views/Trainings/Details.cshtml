@@ -5,6 +5,8 @@
     ViewBag.Title = "Training details: " + @Model.TrainingInfo.Name;
 }
 
+@Html.Action(MVC.Trainings.RenderAssignUser(Model.TrainingInfo.Id))
+
 <h2>Training details: @Model.TrainingInfo.Name</h2>
 
 <h3>Assigned users:</h3>
