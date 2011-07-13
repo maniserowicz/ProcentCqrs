@@ -97,7 +97,7 @@ const string ExplicitHtmlHelpersForPartialsFormat = "Render{0}";
 static bool AlwaysKeepTemplateDirty = false;
 
 // If true,the template output will be split into multiple files.
-static bool SplitIntoMultipleFiles = true;
+static bool SplitIntoMultipleFiles = false;
 
 void RenderAdditionalCode() {
 #>
