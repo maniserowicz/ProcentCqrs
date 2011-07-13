@@ -3,16 +3,16 @@ using ProcentCqrs.Web.Mvc.MvcExtensions;
 
 namespace ProcentCqrs.Web.Mvc.Controllers
 {
-    public class HomeController : CqrsController
+    public partial class HomeController : CqrsController
     {
-        public ActionResult Index()
+        public virtual ActionResult Index()
         {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
 
             return View();
         }
 
-        public ActionResult About()
+        public virtual ActionResult About()
         {
             return View();
         }
