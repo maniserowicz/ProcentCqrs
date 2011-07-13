@@ -68,6 +68,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MvcExtensions\CqrsController.cs" />
+    <Compile Include="MvcExtensions\WebComponentsRegistrationModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +111,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{5C7F4D2A-A702-498D-AFE1-7C249CE9029A}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{8679D5A0-C03C-44B3-B78E-DA93E6948447}</Project>
       <Name>Infrastructure</Name>
