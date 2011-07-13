@@ -8,11 +8,14 @@ namespace ProcentCqrs.Web.Mvc.Controllers
     {
         public virtual ActionResult Index()
         {
-            var model = new TrainingsIndexModel();
+            var model = new TrainingsIndexModel
+                            {
+                                AllTrainings = _db.TrainingsForTrainingsIndex.All().ToList<TrainingsForTrainingsIndex>()
+                            };
 
             return View(model);
         }
-
+        
         public class TrainingsIndexModel
         {
             public virtual IEnumerable<TrainingsForTrainingsIndex> AllTrainings { get; set; }
