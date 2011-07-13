@@ -1,0 +1,24 @@
+#####################
+# Project-specific
+#####################
+/src/Web.Mvc/logs/
+
+#####################
+# Visual Studio
+#####################
+*.user
+*.suo
+*.sln.cache
+
+#####################
+# Build
+#####################
+bin/
+obj/
+
+#####################
+# Resharper
+#####################
+*.resharper
+*\_ReSharper*
+*_ReSharper*
