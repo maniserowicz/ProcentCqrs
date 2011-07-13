@@ -9,9 +9,9 @@
 <h2>All trainings</h2>
 
 <table>
-<thead><tr><th>Id</th><th>Name</th><th>Users count</th></tr></thead>
+<thead><tr><th>Name</th><th>Users count</th></tr></thead>
 @foreach (var t in Model.AllTrainings)
 {
-    <tr><td>@t.Id</td><td>@t.Name</td><td>@t.UsersCount</td></tr>
+    <tr><td>@Html.ActionLink(@t.Name, MVC.Trainings.Details(@t.Id))</td><td>@t.UsersCount</td></tr>
 }
 </table>

@@ -450,6 +450,11 @@ namespace ProcentCqrs.Web.Mvc.Controllers {
         public System.Web.Mvc.ActionResult Add() {
             return new T4MVC_ActionResult(Area, Name, ActionNames.Add);
         }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public System.Web.Mvc.ActionResult Details() {
+            return new T4MVC_ActionResult(Area, Name, ActionNames.Details);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public TrainingsController Actions { get { return MVC.Trainings; } }
@@ -465,6 +470,7 @@ namespace ProcentCqrs.Web.Mvc.Controllers {
         public class ActionNamesClass {
             public readonly string RenderAdd = "RenderAdd";
             public readonly string Add = "Add";
+            public readonly string Details = "Details";
             public readonly string Index = "Index";
         }
 
@@ -475,6 +481,7 @@ namespace ProcentCqrs.Web.Mvc.Controllers {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ViewNames {
             public readonly string AddTrainingPanel = "~/Views/Trainings/AddTrainingPanel.cshtml";
+            public readonly string Details = "~/Views/Trainings/Details.cshtml";
             public readonly string Index = "~/Views/Trainings/Index.cshtml";
         }
     }
@@ -491,6 +498,12 @@ namespace ProcentCqrs.Web.Mvc.Controllers {
         public override System.Web.Mvc.ActionResult Add(ProcentCqrs.Web.Mvc.Controllers.TrainingsController.TrainingsAddModel model) {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Add);
             callInfo.RouteValueDictionary.Add("model", model);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Details(int id) {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Details);
+            callInfo.RouteValueDictionary.Add("id", id);
             return callInfo;
         }
 

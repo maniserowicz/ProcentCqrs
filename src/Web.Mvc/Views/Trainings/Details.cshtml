@@ -1,0 +1,21 @@
+﻿@using ProcentCqrs.Web.Mvc.Controllers
+@model TrainingsController.TrainingsDetailsModel
+
+@{
+    ViewBag.Title = "Training details: " + @Model.TrainingInfo.Name;
+}
+
+<h2>Training details: @Model.TrainingInfo.Name</h2>
+
+<h3>Assigned users:</h3>
+<table><thead><tr>
+<th>Email</th>
+<th>First name</th>
+<th>Last name</th>
+<th>Assigned</th>
+</tr></thead>
+@foreach (var u in Model.Users)
+{
+    <tr><td>@u.Email</td><td>@u.FirstName</td><td>@u.LastName</td><td>@u.AssignmentDate.ToLocalTime()</td></tr>
+}
+</table>

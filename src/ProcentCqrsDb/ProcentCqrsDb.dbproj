@@ -178,5 +178,11 @@
     <Build Include="Schema Objects\Schemas\readmodel\Views\readmodel.UsersForUsersIndex.view.sql">
       <SubType>Code</SubType>
     </Build>
+    <Build Include="Schema Objects\Schemas\readmodel\Views\readmodel.TrainingForTrainingsDetails.view.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\readmodel\Views\readmodel.UserForTrainingsDetails.view.sql">
+      <SubType>Code</SubType>
+    </Build>
   </ItemGroup>
 </Project>
