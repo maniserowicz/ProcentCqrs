@@ -444,6 +444,11 @@ namespace ProcentCqrs.Web.Mvc.Controllers {
             return RedirectToRoute(callInfo.RouteValueDictionary);
         }
 
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public System.Web.Mvc.ActionResult Add() {
+            return new T4MVC_ActionResult(Area, Name, ActionNames.Add);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public TrainingsController Actions { get { return MVC.Trainings; } }
@@ -457,6 +462,8 @@ namespace ProcentCqrs.Web.Mvc.Controllers {
         public ActionNamesClass ActionNames { get { return s_actions; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNamesClass {
+            public readonly string RenderAdd = "RenderAdd";
+            public readonly string Add = "Add";
             public readonly string Index = "Index";
         }
 
@@ -466,6 +473,7 @@ namespace ProcentCqrs.Web.Mvc.Controllers {
         public ViewNames Views { get { return s_views; } }
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ViewNames {
+            public readonly string AddTrainingPanel = "~/Views/Trainings/AddTrainingPanel.cshtml";
             public readonly string Index = "~/Views/Trainings/Index.cshtml";
         }
     }
@@ -473,6 +481,17 @@ namespace ProcentCqrs.Web.Mvc.Controllers {
     [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
     public class T4MVC_TrainingsController: ProcentCqrs.Web.Mvc.Controllers.TrainingsController {
         public T4MVC_TrainingsController() : base(Dummy.Instance) { }
+
+        public override System.Web.Mvc.ActionResult RenderAdd() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.RenderAdd);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Add(ProcentCqrs.Web.Mvc.Controllers.TrainingsController.TrainingsAddModel model) {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Add);
+            callInfo.RouteValueDictionary.Add("model", model);
+            return callInfo;
+        }
 
         public override System.Web.Mvc.ActionResult Index() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Index);

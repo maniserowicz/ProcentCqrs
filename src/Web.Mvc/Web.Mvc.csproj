@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Trainings\Add.cs" />
     <Compile Include="Controllers\Trainings\Index.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -160,6 +161,7 @@
     </None>
     <None Include="T4MVC.tt.settings.t4" />
     <Content Include="Views\Trainings\Index.cshtml" />
+    <Content Include="Views\Trainings\AddTrainingPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

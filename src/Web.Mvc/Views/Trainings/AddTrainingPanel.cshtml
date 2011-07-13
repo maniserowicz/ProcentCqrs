@@ -1,0 +1,11 @@
+﻿@using ProcentCqrs.Web.Mvc.Controllers
+@model TrainingsController.TrainingsAddModel
+
+<h2>Add training</h2>
+
+@using(Html.BeginForm(MVC.Trainings.Add(), FormMethod.Post))
+{
+    @Html.EditorForModel();
+    
+    <input type="submit" value="Create" />
+}
