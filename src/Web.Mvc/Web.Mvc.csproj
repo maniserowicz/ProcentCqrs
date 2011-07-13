@@ -47,6 +47,15 @@
     <Reference Include="NLog.Extended">
       <HintPath>..\..\lib\NLog2.netfx40-RC\NLog.Extended.dll</HintPath>
     </Reference>
+    <Reference Include="Simple.Data, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Simple.Data.0.7.1\Simple.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Simple.Data.Ado, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Simple.Data.0.7.1\Simple.Data.Ado.dll</HintPath>
+    </Reference>
+    <Reference Include="Simple.Data.SqlServer, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\Simple.Data.0.7.1\Simple.Data.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages" />
     <Reference Include="System.Web.Helpers" />
