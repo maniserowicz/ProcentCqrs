@@ -16,5 +16,11 @@
             _firstName = firstName;
             _lastName = lastName;
         }
+
+        public virtual void Rename(string firstName, string lastName)
+        {
+            _firstName = firstName;
+            _lastName = lastName;
+        }
     }
 }

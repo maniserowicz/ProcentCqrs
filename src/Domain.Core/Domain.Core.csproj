@@ -43,10 +43,12 @@
     <Compile Include="Commands\Trainings\AddTrainingCommand.cs" />
     <Compile Include="Commands\Trainings\AssignTraineeToTrainingCommand.cs" />
     <Compile Include="Commands\Users\AddUserCommand.cs" />
+    <Compile Include="Commands\Users\RenameUserCommand.cs" />
     <Compile Include="EventsCommandsBus.cs" />
     <Compile Include="Events\Trainings\TrainingWasAdded.cs" />
     <Compile Include="Events\Trainings\TraineeWasAssignedToTraining.cs" />
     <Compile Include="Events\Users\UserWasAdded.cs" />
+    <Compile Include="Events\Users\UserWasRenamed.cs" />
     <Compile Include="MessageInterfaces.cs" />
     <Compile Include="Notifications\FakeNotifier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
