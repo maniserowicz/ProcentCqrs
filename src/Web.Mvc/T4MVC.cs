@@ -306,6 +306,35 @@ namespace Links {
         private const string URLPATH = "~/Scripts";
         public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
         public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public static class app {
+            private const string URLPATH = "~/Scripts/app";
+            public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+            public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+            public static readonly string app_ajax_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/app-ajax.min.js") ? Url("app-ajax.min.js") : Url("app-ajax.js");
+                          
+            public static readonly string app_ui_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/app-ui.min.js") ? Url("app-ui.min.js") : Url("app-ui.js");
+                          
+            public static readonly string app_utils_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/app-utils.min.js") ? Url("app-utils.min.js") : Url("app-utils.js");
+                          
+            [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+            public static class views {
+                private const string URLPATH = "~/Scripts/app/views";
+                public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+                public static class Users {
+                    private const string URLPATH = "~/Scripts/app/views/Users";
+                    public static string Url() { return T4MVCHelpers.ProcessVirtualPath(URLPATH); }
+                    public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
+                    public static readonly string users_index_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/users-index.min.js") ? Url("users-index.min.js") : Url("users-index.js");
+                                  
+                }
+            
+            }
+        
+        }
+    
         public static readonly string jquery_1_4_4_vsdoc_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-1.4.4-vsdoc.min.js") ? Url("jquery-1.4.4-vsdoc.min.js") : Url("jquery-1.4.4-vsdoc.js");
                       
         public static readonly string jquery_1_4_4_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-1.4.4.min.js") ? Url("jquery-1.4.4.min.js") : Url("jquery-1.4.4.js");
@@ -559,6 +588,11 @@ namespace ProcentCqrs.Web.Mvc.Controllers {
         public System.Web.Mvc.ActionResult Add() {
             return new T4MVC_ActionResult(Area, Name, ActionNames.Add);
         }
+        [NonAction]
+        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+        public System.Web.Mvc.ActionResult Rename() {
+            return new T4MVC_ActionResult(Area, Name, ActionNames.Rename);
+        }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public UsersController Actions { get { return MVC.Users; } }
@@ -575,6 +609,8 @@ namespace ProcentCqrs.Web.Mvc.Controllers {
             public readonly string RenderAdd = "RenderAdd";
             public readonly string Add = "Add";
             public readonly string Index = "Index";
+            public readonly string RenderRename = "RenderRename";
+            public readonly string Rename = "Rename";
         }
 
 
@@ -585,6 +621,7 @@ namespace ProcentCqrs.Web.Mvc.Controllers {
         public class ViewNames {
             public readonly string AddUserPanel = "~/Views/Users/AddUserPanel.cshtml";
             public readonly string Index = "~/Views/Users/Index.cshtml";
+            public readonly string RenameUserDialog = "~/Views/Users/RenameUserDialog.cshtml";
         }
     }
 
@@ -605,6 +642,17 @@ namespace ProcentCqrs.Web.Mvc.Controllers {
 
         public override System.Web.Mvc.ActionResult Index() {
             var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Index);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult RenderRename() {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.RenderRename);
+            return callInfo;
+        }
+
+        public override System.Web.Mvc.ActionResult Rename(ProcentCqrs.Web.Mvc.Controllers.UsersController.UsersRenameModel model) {
+            var callInfo = new T4MVC_ActionResult(Area, Name, ActionNames.Rename);
+            callInfo.RouteValueDictionary.Add("model", model);
             return callInfo;
         }
 

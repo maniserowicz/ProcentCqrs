@@ -80,9 +80,11 @@
     <Compile Include="Controllers\Trainings\Index.cs" />
     <Compile Include="Controllers\Users\Add.cs" />
     <Compile Include="Controllers\Users\Index.cs" />
+    <Compile Include="Controllers\Users\Rename.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="MvcExtensions\AjaxHelperExtensions.cs" />
     <Compile Include="MvcExtensions\CqrsController.cs" />
     <Compile Include="MvcExtensions\WebComponentsRegistrationModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,6 +99,10 @@
     <Content Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\app\app-ajax.js" />
+    <Content Include="Scripts\app\app-ui.js" />
+    <Content Include="Scripts\app\app-utils.js" />
+    <Content Include="Scripts\app\views\Users\users-index.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -170,6 +176,7 @@
     <Content Include="Views\Users\AddUserPanel.cshtml" />
     <Content Include="Views\Trainings\Details.cshtml" />
     <Content Include="Views\Trainings\AssignUserToTrainingPanel.cshtml" />
+    <Content Include="Views\Users\RenameUserDialog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

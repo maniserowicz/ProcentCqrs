@@ -10,9 +10,13 @@
 <h2>All Users</h2>
 
 <table>
-<thead><tr><th>Id</th><th>email</th><th>first name</th><th>last name</th></tr></thead>
+<thead><tr><th>Id</th><th>email</th><th>first name</th><th>last name</th><th>actions</th></tr></thead>
 @foreach (var u in Model.AllUsers)
 {
-    <tr><td>@u.Id</td><td>@u.Email</td><td>@u.FirstName</td><td>@u.LastName</td></tr>
+    <tr data-id="@u.Id"><td>@u.Id</td><td>@u.Email</td><td data-role="first-name">@u.FirstName</td><td data-role="last-name">@u.LastName</td><td><a href="#" data-command="rename-user">rename</a></td></tr>
 }
 </table>
+
+<script type="text/javascript" src="@Links.Scripts.app.views.Users.users_index_js"></script>
+
+@Html.Action(MVC.Users.RenderRename())
