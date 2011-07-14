@@ -1,4 +1,9 @@
-﻿$(function () {
+﻿var v = {
+    onRenamed: function () {
+    }
+};
+
+$(function () {
     var dlgRenameUser = $('#dlgRenameUser');
     var dlgRenameUserTitleTemplate = dlgRenameUser.data('title-template');
 
@@ -8,14 +13,25 @@
         var $row = $(this).closest('tr');
 
         var userId = $row.data('id');
-        var firstName = $('[data-role=first-name]', $row).text();
-        var lastName = $('[data-role=last-name]', $row).text();
+        var firstName = $('[data-role=first-name]', $row);
+        var lastName = $('[data-role=last-name]', $row);
+
+        var newFirstName = $('#FirstName', dlgRenameUser);
+        var newLastName = $('#LastName', dlgRenameUser);
 
         $('#UserId', dlgRenameUser).val(userId);
-        $('#FirstName', dlgRenameUser).val(firstName);
-        $('#LastName', dlgRenameUser).val(lastName);
+        newFirstName.val(firstName.text());
+        newLastName.val(lastName.text());
 
-        dlgRenameUser.dialog('option', { title: su.format(dlgRenameUserTitleTemplate, firstName, lastName) });
+        v.onRenamed = function () {
+            dlgRenameUser.dialog('close');
+
+            firstName.text(newFirstName.val());
+            lastName.text(newLastName.val());
+        };
+
+        var newTitle = su.format(dlgRenameUserTitleTemplate, firstName.text(), lastName.text());
+        dlgRenameUser.dialog('option', { title: newTitle });
         dlgRenameUser.dialog('open');
     });
 })

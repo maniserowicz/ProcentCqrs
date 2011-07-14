@@ -1,3 +1,5 @@
+using System;
+
 namespace ProcentCqrs.Domain.Core.Commands.Users
 {
     public class RenameUserCommand : ICommand

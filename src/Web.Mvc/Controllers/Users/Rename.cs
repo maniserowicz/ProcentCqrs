@@ -23,7 +23,7 @@ namespace ProcentCqrs.Web.Mvc.Controllers
 
             _commandSender.Send(new RenameUserCommand(model.UserId, model.FirstName, model.LastName));
 
-            return RedirectToAction(MVC.Users.Index());
+            return Json(null);
         }
 
         public class UsersRenameModel
