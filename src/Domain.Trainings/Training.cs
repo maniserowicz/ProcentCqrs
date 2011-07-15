@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ProcentCqrs.Infrastructure.System;
 
 namespace ProcentCqrs.Domain.Trainings
 {
@@ -18,7 +18,7 @@ namespace ProcentCqrs.Domain.Trainings
 
         public virtual TrainingAssignment AssignTrainee(Trainee trainee)
         {
-            var newAssignment = new TrainingAssignment(this, trainee, DateTime.UtcNow);
+            var newAssignment = new TrainingAssignment(this, trainee, ApplicationTime.Current);
             return newAssignment;
         }
     }
