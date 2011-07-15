@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
@@ -25,6 +26,12 @@ namespace ProcentCqrs.Infrastructure.NHibernate
         private static ISessionFactory _sessionFactory;
         private static readonly object _syncRoot = new object();
 
+        /// <summary>
+        /// Properties overriding those defined in config xml,
+        /// useful when unit testing.
+        /// </summary>
+        public static IDictionary<string, string> OverridenProperties;
+
         private static ISessionFactory SessionFactory
         {
             get
@@ -36,7 +43,24 @@ namespace ProcentCqrs.Infrastructure.NHibernate
                         if (_sessionFactory == null)
                         {
                             var configuration = new Configuration();
+
                             configuration.Configure();
+
+                            if (OverridenProperties != null)
+                            {
+                                var existingProps = configuration.Properties;
+                                foreach (var prop in OverridenProperties)
+                                {
+                                    if (existingProps.ContainsKey(prop.Key))
+                                    {
+                                        existingProps[prop.Key] = prop.Value;
+                                    }
+                                    else
+                                    {
+                                        existingProps.Add(prop);
+                                    }
+                                }
+                            }
 
                             foreach (var assembly in AppDomain.CurrentDomain.GetAppAssemblies())
                             {
