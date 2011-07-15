@@ -1,4 +1,4 @@
-This is my playgound for experiments with CQRS in web app.
+This is my playground for experiments with CQRS in web app.
 
 Main ideas:
 
@@ -6,13 +6,14 @@ Main ideas:
  * read model created via DB views
  * all interaction with domain via commands/events
 
-Git tags mark "milesones" in this project's development - use them to navigate though project lifecycle.
+Git tags mark "milestones" in this project's development - use them to navigate though project lifecycle.
 
 For now I am _not_ going to implement event sourcing, as I probably won't be able to use it in a real project in foreseeable future.
 
-My main current issue:
+Testing the domain (it has no public getters/setters)
 
- * how do I test domain if there are no public getters/setters? idea: run a command handler in test, then fetch appropriate read model and verify fields there... but that kinda sucks - I should test behavior, not state transition (?), especially in very simple instructions (like user.ChangeName()) that do not affect system logic
+I solved this (however I'm not sure if it's the right way) by testing with DB - tests call command handlers instead of domain objects themselves.
+Domain command handlers get NH session, and tests use Simple.Data to verify that operation has the expected result. I currently don't have any idea of how to do it better.
 
 Further development ideas:
 
@@ -28,3 +29,6 @@ Tools user so far:
  * NHibernate (for write model)
  * Simple.Data (for read model)
  * NLog
+ * SQL Server CE (for testing)
+ * xUnit (will probably be converted to MSpec ofter runner for R#6 release)
+ * FakeItEasy
