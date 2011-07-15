@@ -15,6 +15,10 @@ namespace ProcentCqrs.Tests._Utils
             public virtual string PreparedContent { get; set; }
         }
 
+        /// <summary>
+        /// Sql Server CE does not support views, index ordering etc,
+        /// so scripts need to be simplified here.
+        /// </summary>
         public IEnumerable<ScriptFileInfo> PrepareScripts(IEnumerable<string> files)
         {
             if (files == null)

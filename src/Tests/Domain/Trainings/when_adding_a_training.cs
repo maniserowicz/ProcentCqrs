@@ -26,7 +26,7 @@ namespace ProcentCqrs.Tests.Domain.Trainings
         }
 
         [Fact]
-        public void it_should_save_new_training_to_db()
+        public void it_should_save_new_training()
         {
             Run();
 
@@ -34,7 +34,7 @@ namespace ProcentCqrs.Tests.Domain.Trainings
         }
 
         [Fact]
-        public void it_should_save_given_name_to_db()
+        public void it_should_save_given_name()
         {
             Run();
 
@@ -46,7 +46,9 @@ namespace ProcentCqrs.Tests.Domain.Trainings
         {
             Run();
 
-            A.CallTo(() => EventPublisher.Publish(A<TrainingWasAdded>._)).MustHaveHappened();
+            A.CallTo(() => EventPublisher
+                .Publish(A<TrainingWasAdded>.That.Matches(x => x.Id == 1 && x.Name == _name)))
+                .MustHaveHappened(Repeated.Exactly.Once);
         }
     }
 }

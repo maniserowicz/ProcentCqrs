@@ -1,6 +1,5 @@
 ﻿using FakeItEasy;
 using ProcentCqrs.Domain.Core.Commands.Users;
-using ProcentCqrs.Domain.Core.Events.Trainings;
 using ProcentCqrs.Domain.Core.Events.Users;
 using ProcentCqrs.Domain.Users.CommandHandlers;
 using ProcentCqrs.Tests.Structure;
@@ -32,7 +31,7 @@ namespace ProcentCqrs.Tests.Domain.Users
         }
 
         [Fact]
-        public void it_should_save_new_user_to_db()
+        public void it_should_save_new_user()
         {
             Run();
 
@@ -40,7 +39,7 @@ namespace ProcentCqrs.Tests.Domain.Users
         }
 
         [Fact]
-        public void it_should_save_given_data_to_db()
+        public void it_should_save_given_data()
         {
             Run();
 
@@ -54,7 +53,9 @@ namespace ProcentCqrs.Tests.Domain.Users
         {
             Run();
 
-            A.CallTo(() => EventPublisher.Publish(A<UserWasAdded>._)).MustHaveHappened();
+            A.CallTo(() => EventPublisher
+                .Publish(A<UserWasAdded>.That.Matches(x => x.Id == 1 && x.Email == _email && x.FirstName == _firstName && x.LastName == _lastName)))
+                .MustHaveHappened(Repeated.Exactly.Once);
         }
     }
 }
