@@ -17,6 +17,11 @@ namespace System
             return !@this.Contains(value);
         }
 
+        public static bool DoesNotEndWith(this string @this, string value)
+        {
+            return !@this.EndsWith(value);
+        }
+
         public static bool IsSomething(this string @this)
         {
             return !string.IsNullOrEmpty(@this);
