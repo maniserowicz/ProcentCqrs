@@ -23,8 +23,8 @@ namespace ProcentCqrs.Tests.Domain.Trainings
             _now = Randomizer.DateTime();
             ApplicationTime._replaceCurrentTimeLogic(() => _now);
 
-            TryCreateHandler<AddUserHandler>().Handle(new AddUserCommand(Randomizer.Email(), Randomizer.String(), Randomizer.String()));
-            TryCreateHandler<AddTrainingHandler>().Handle(new AddTrainingCommand(Randomizer.String()));
+            TempHandler<AddUserHandler>().Handle(new AddUserCommand(Randomizer.Email(), Randomizer.String(), Randomizer.String()));
+            TempHandler<AddTrainingHandler>().Handle(new AddTrainingCommand(Randomizer.String()));
         }
 
         public override void Dispose()

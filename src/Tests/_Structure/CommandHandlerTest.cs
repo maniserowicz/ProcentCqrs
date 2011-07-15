@@ -22,6 +22,7 @@ namespace ProcentCqrs.Tests.Structure
         protected THandler Handler { get; private set; }
         protected TCommand Command { get; private set; }
         protected IEventPublisher EventPublisher { get; private set; }
+        protected Exception Error { get; private set; }
 
         private static NHibernateSessionProvider _sessionProvider;
 
@@ -65,9 +66,16 @@ namespace ProcentCqrs.Tests.Structure
             Command = CreateCommand();
         }
 
-        public T TryCreateHandler<T>()
+        private T TryCreateHandler<T>(IEventPublisher publisher = null)
         {
-            return (T)Activator.CreateInstance(typeof(T), Session, EventPublisher);
+            return (T)Activator.CreateInstance(typeof(T), Session, publisher ?? EventPublisher);
+        }
+
+        // Handlers created by this method will each get a new instance of EventPublisher
+        // so that they do not interrupt actual testing scenario
+        protected T TempHandler<T>()
+        {
+            return TryCreateHandler<T>(A.Fake<IEventPublisher>());
         }
 
         protected void Because_of()
@@ -78,7 +86,14 @@ namespace ProcentCqrs.Tests.Structure
         protected void Run()
         {
             Establish_context();
-            Because_of();
+            try
+            {
+                Because_of();
+            }
+            catch (Exception exc)
+            {
+                Error = exc;
+            }
 
             Before_assertions();
         }

@@ -77,6 +77,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Trainings\when_assigning_trainee_to_the_same_training_more_than_once.cs" />
     <Compile Include="Domain\Trainings\when_assigning_trainee_to_training.cs" />
     <Compile Include="Domain\Users\when_adding_a_user.cs" />
     <Compile Include="Domain\Trainings\when_adding_a_training.cs" />
