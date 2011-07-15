@@ -55,6 +55,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup\AppStarter.cs" />
     <Compile Include="Startup\IStartupTask.cs" />
+    <Compile Include="System\ApplicationTime.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

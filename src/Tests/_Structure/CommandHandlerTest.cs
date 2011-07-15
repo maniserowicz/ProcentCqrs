@@ -53,16 +53,21 @@ namespace ProcentCqrs.Tests.Structure
                 };
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             Session.Dispose();
         }
 
-        protected void Establish_context()
+        protected virtual void Establish_context()
         {
             EventPublisher = A.Fake<IEventPublisher>();
-            Handler = (THandler)Activator.CreateInstance(typeof(THandler), Session, EventPublisher);
+            Handler = TryCreateHandler<THandler>();
             Command = CreateCommand();
+        }
+
+        public T TryCreateHandler<T>()
+        {
+            return (T)Activator.CreateInstance(typeof(T), Session, EventPublisher);
         }
 
         protected void Because_of()
