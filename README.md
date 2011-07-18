@@ -30,5 +30,5 @@ Tools user so far:
  * Simple.Data (for read model)
  * NLog
  * SQL Server CE (for testing)
- * xUnit (will probably be converted to MSpec ofter runner for R#6 release)
+ * MSpec (and xUnit in several minor scenarios)
  * FakeItEasy
