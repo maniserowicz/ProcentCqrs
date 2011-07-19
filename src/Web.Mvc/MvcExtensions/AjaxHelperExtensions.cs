@@ -10,7 +10,7 @@ namespace System.Web.Mvc
             var options = new AjaxOptions
                 {
                     OnSuccess = onSuccess,
-                    OnFailure = "ajax.onError",
+                    OnFailure = "cqrs.ajax.onError",
                     HttpMethod = "POST",
                 };
 

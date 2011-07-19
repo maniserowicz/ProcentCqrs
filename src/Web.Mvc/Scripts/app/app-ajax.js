@@ -1,7 +1,11 @@
-﻿var ajax = {
+﻿var cqrs = this.cqrs || {};
+
+function AppAjax() { }
+
+AppAjax.prototype = {
     onError: function () {
         alert('error occured');
     }
 };
 
-var su = utils.string;
+cqrs.ajax = new AppAjax();

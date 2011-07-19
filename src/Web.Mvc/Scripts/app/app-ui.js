@@ -1,4 +1,8 @@
-﻿var ui = {
+﻿var cqrs = this.cqrs || {};
+
+function AppUI() { }
+
+AppUI.prototype = {
     defaults: {
         modalDialog: {
             autoOpen: false,
@@ -9,10 +13,12 @@
         }
     }
     , init: function (ctx) {
-        $('.modal-dialog', ctx).dialog(ui.defaults.modalDialog);
+        $('.modal-dialog', ctx).dialog(this.defaults.modalDialog);
     }
 };
 
+cqrs.ui = new AppUI();
+
 $(function () {
-    ui.init($(document));
-})
+    cqrs.ui.init($(document));
+});

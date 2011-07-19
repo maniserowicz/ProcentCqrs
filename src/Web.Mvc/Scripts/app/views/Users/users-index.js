@@ -1,4 +1,6 @@
-﻿var v = {
+﻿var cqrs = this.cqrs || {};
+
+var v = {
     onRenamed: function () {
     }
 };
@@ -30,7 +32,7 @@ $(function () {
             lastName.text(newLastName.val());
         };
 
-        var newTitle = su.format(dlgRenameUserTitleTemplate, firstName.text(), lastName.text());
+        var newTitle = cqrs.su.format(dlgRenameUserTitleTemplate, firstName.text(), lastName.text());
         dlgRenameUser.dialog('option', { title: newTitle });
         dlgRenameUser.dialog('open');
     });

@@ -1,6 +1,10 @@
-﻿var utils = {
+﻿var cqrs = this.cqrs || {};
+
+function AppUtils() { }
+
+AppUtils.prototype = {
     string: {
-        format: function(template) {
+        format: function (template) {
             for (i = 1; i < arguments.length; i++) {
                 template = template.replace('{' + (i - 1) + '}', arguments[i]);
             }
@@ -9,4 +13,5 @@
     }
 };
 
-var su = utils.string;
+cqrs.utils = new AppUtils();
+cqrs.su = cqrs.utils.string;
