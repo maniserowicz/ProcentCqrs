@@ -49,8 +49,9 @@
     <Reference Include="FakeItEasy">
       <HintPath>..\..\lib\FakeItEasy-1.7.4166.27\FakeItEasy.dll</HintPath>
     </Reference>
-    <Reference Include="Machine.Specifications">
-      <HintPath>..\..\lib\Machine.Specifications-Release.0.4.13.0\Machine.Specifications.dll</HintPath>
+    <Reference Include="Machine.Specifications, Version=0.4.115.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Machine.Specifications-Release.0.4.115\Machine.Specifications.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate, Version=3.2.0.3001, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\..\lib\NHibernate-3.2.0.CR1-bin\NHibernate.dll</HintPath>
