@@ -343,6 +343,9 @@ namespace Links {
         public static readonly string jquery_ui_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery-ui.min.js") ? Url("jquery-ui.min.js") : Url("jquery-ui.js");
                       
         public static readonly string jquery_ui_min_js = Url("jquery-ui.min.js");
+        public static readonly string jquery_tmpl_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.tmpl.min.js") ? Url("jquery.tmpl.min.js") : Url("jquery.tmpl.js");
+                      
+        public static readonly string jquery_tmpl_min_js = Url("jquery.tmpl.min.js");
         public static readonly string jquery_unobtrusive_ajax_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.unobtrusive-ajax.min.js") ? Url("jquery.unobtrusive-ajax.min.js") : Url("jquery.unobtrusive-ajax.js");
                       
         public static readonly string jquery_unobtrusive_ajax_min_js = Url("jquery.unobtrusive-ajax.min.js");
@@ -354,6 +357,11 @@ namespace Links {
         public static readonly string jquery_validate_unobtrusive_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/jquery.validate.unobtrusive.min.js") ? Url("jquery.validate.unobtrusive.min.js") : Url("jquery.validate.unobtrusive.js");
                       
         public static readonly string jquery_validate_unobtrusive_min_js = Url("jquery.validate.unobtrusive.min.js");
+        public static readonly string json2_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/json2.min.js") ? Url("json2.min.js") : Url("json2.js");
+                      
+        public static readonly string knockout_1_2_1_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/knockout-1.2.1.min.js") ? Url("knockout-1.2.1.min.js") : Url("knockout-1.2.1.js");
+                      
+        public static readonly string knockout_1_2_1_min_js = Url("knockout-1.2.1.min.js");
         public static readonly string MicrosoftAjax_debug_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/MicrosoftAjax.debug.min.js") ? Url("MicrosoftAjax.debug.min.js") : Url("MicrosoftAjax.debug.js");
                       
         public static readonly string MicrosoftAjax_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/MicrosoftAjax.min.js") ? Url("MicrosoftAjax.min.js") : Url("MicrosoftAjax.js");

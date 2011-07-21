@@ -103,6 +103,11 @@
     <Content Include="Scripts\app\app-ui.js" />
     <Content Include="Scripts\app\app-utils.js" />
     <Content Include="Scripts\app\views\Users\users-index.js" />
+    <Content Include="Scripts\jquery.tmpl.js" />
+    <Content Include="Scripts\jquery.tmpl.min.js" />
+    <Content Include="Scripts\json2.js" />
+    <Content Include="Scripts\knockout-1.2.1.js" />
+    <Content Include="Scripts\knockout-1.2.1.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
