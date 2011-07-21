@@ -2,7 +2,7 @@
 @model UsersController.UsersRenameModel
 
 <div id="dlgRenameUser" data-title-template="Rename user {0} {1}" class="modal-dialog">
-@using(Ajax.BeginForm(MVC.Users.Rename(), "v.onRenamed"))
+@using(Ajax.BeginForm(MVC.Users.Rename(), "cqrs.v.onRenamed"))
 {
     @Html.EditorForModel();
     

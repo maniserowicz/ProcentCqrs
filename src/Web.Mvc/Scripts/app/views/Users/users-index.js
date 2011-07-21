@@ -1,6 +1,6 @@
 ﻿var cqrs = this.cqrs || {};
 
-var v = {
+cqrs.v = {
     onRenamed: function () {
     }
 };
@@ -25,7 +25,7 @@ $(function () {
         newFirstName.val(firstName.text());
         newLastName.val(lastName.text());
 
-        v.onRenamed = function () {
+        cqrs.v.onRenamed = function () {
             dlgRenameUser.dialog('close');
 
             firstName.text(newFirstName.val());
