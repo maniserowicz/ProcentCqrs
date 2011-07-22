@@ -313,6 +313,8 @@ namespace Links {
             public static string Url(string fileName) { return T4MVCHelpers.ProcessVirtualPath(URLPATH + "/" + fileName); }
             public static readonly string app_ajax_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/app-ajax.min.js") ? Url("app-ajax.min.js") : Url("app-ajax.js");
                           
+            public static readonly string app_overrides_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/app-overrides.min.js") ? Url("app-overrides.min.js") : Url("app-overrides.js");
+                          
             public static readonly string app_ui_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/app-ui.min.js") ? Url("app-ui.min.js") : Url("app-ui.js");
                           
             public static readonly string app_utils_js = T4MVCHelpers.IsProduction() && T4Extensions.FileExists(URLPATH + "/app-utils.min.js") ? Url("app-utils.min.js") : Url("app-utils.js");

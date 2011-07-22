@@ -106,6 +106,7 @@
     <Content Include="Scripts\app\app-ajax.js" />
     <Content Include="Scripts\app\app-ui.js" />
     <Content Include="Scripts\app\app-utils.js" />
+    <Content Include="Scripts\app\app-overrides.js" />
     <Content Include="Scripts\app\views\Users\users-index.js" />
     <Content Include="Scripts\jquery.tmpl.js" />
     <Content Include="Scripts\jquery.tmpl.min.js" />
