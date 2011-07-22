@@ -1,11 +1,22 @@
-﻿@using ProcentCqrs.Web.Mvc.Controllers
+﻿@using MvcContrib
+@using ProcentCqrs.Web.Mvc.Controllers
 @model UsersController.UsersRenameModel
 
-<div id="dlgRenameUser" data-title-template="Rename user {0} {1}" class="modal-dialog">
-@using(Ajax.BeginForm(MVC.Users.Rename(), "cqrs.v.onRenamed"))
+<div id="dlgRenameUser" class="modal-dialog">
+@using (Ajax.BeginForm(MVC.Users.Rename(), new Hash<string>(success => "cqrs.v.onRenamed", before => "cqrs.v.beforeRename")))
 {
-    @Html.EditorForModel();
-    
-    <input type="submit" value="Rename" />
+    <div data-bind="template: { name: 'tmplRenaming', data: renaming }"></div>
+    <script id="tmplRenaming" type="text/html">
+        <input type="hidden" id="@Html.IdFor(x => x.UserId)" name="@Html.NameFor(x => x.UserId)" value="${Id}" />
+        <p>
+            @Html.TextBoxFor(x => x.FirstName, new { data_bind = "value: FirstName" })
+            @Html.ValidationMessageFor(x => x.FirstName)
+        </p>
+        <p>
+            @Html.TextBoxFor(x => x.LastName, new { data_bind = "value: LastName" })
+            @Html.ValidationMessageFor(x => x.LastName)
+        </p>
+        <input type="submit" value="Rename" />
+    </script>
 }
 </div>
