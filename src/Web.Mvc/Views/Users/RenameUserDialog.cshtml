@@ -3,7 +3,7 @@
 @model UsersController.UsersRenameModel
 
 <div id="dlgRenameUser" class="modal-dialog">
-@using (Ajax.BeginForm(MVC.Users.Rename(), new Hash<string>(success => "cqrs.v.onRenamed", before => "cqrs.v.beforeRename")))
+@using (Ajax.BeginForm(MVC.Users.Rename(), new Hash<string>(success => "cqrs.v.onRenamed")))
 {
     <div data-bind="template: { name: 'tmplRenaming', data: renaming }"></div>
     <script id="tmplRenaming" type="text/html">

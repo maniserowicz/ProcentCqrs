@@ -3,16 +3,6 @@
 cqrs.v = {
     onRenamed: function () {
     }
-    , beforeRename: function () {
-        // necessary for Opera - it does not update underlying bindings
-        // when ENTER is pressed to issue form submission
-
-        // investigate 'valueUpdate' param to value binding
-        // first tests show that it causes exception when combining MVC helpers with jquery template
-        // and even simplest usage (outside of template) of 'valueUpdate' did not work as expected
-        // (http://knockoutjs.com/documentation/value-binding.html)
-        $('form input').blur();
-    }
 };
 
 $(function () {
