@@ -29,7 +29,7 @@ CLEAN.include (FileList["src/**/#{CONFIGURATION}"])
 
 desc "builds solution"
 msbuild :build => [:clean, :asminfo] do |msb|
-    msb.properties :configuration => CONFIGURATION
+    msb.properties :configuration => CONFIGURATION, :MvcBuildViews => "true"
     msb.targets :Clean, :Rebuild
     msb.solution = SLN_FILE
     msb.verbosity = "q"
