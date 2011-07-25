@@ -21,7 +21,7 @@ desc "Compiles solution, runs unit tests and puts all products in #{OUTPUT} dir"
 task :default => [:clean, :build, :test, :publish]
 
 desc "Runs all unit tests"
-task :test => [:mspec]
+task :test => [:mspec, :xunit]
 
 # configuration for rake/clean task
 CLEAN.include (OUTPUT)
@@ -57,4 +57,11 @@ mspec :mspec => :build do |mspec|
     mspec.command = "tools/Machine.Specifications-Release.0.4.115/mspec-clr4.exe"
     #mspec.html_output = "./mspec_results.html"
     mspec.assemblies "src/Tests/bin/#{CONFIGURATION}/ProcentCqrs.Tests.dll"
+end
+
+desc "runs xUnit tests"
+xunit :xunit => :build do |xunit|
+    xunit.command = "tools/xunit-1.8/xunit.console.clr4.exe"
+    #xunit.html_output = "."
+    xunit.assemblies = FileList["src/**/#{CONFIGURATION}/*.Tests.dll"].exclude(/obj\//)
 end
