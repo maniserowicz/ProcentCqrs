@@ -8,6 +8,9 @@ OUTPUT = 'Output'
 CONFIGURATION = 'Release'
 SLN_FILE = 'src/ProcentCqrs.sln'
 VERSION = '0.1.0.0'
+WEBAPP_NAME = 'Web.Mvc'
+WEBAPP_DIR = "src/#{WEBAPP_NAME}"
+WEBAPP_PROJFILE = "#{WEBAPP_DIR}/#{WEBAPP_NAME}.csproj"
 
 # set albacore configuration variables
 Albacore.configure do |config|
@@ -46,10 +49,31 @@ assemblyinfo :asminfo do |asm|
     asm.output_file = 'src/SharedAssemblyInfo.cs'
 end
 
-desc "copies all output files to a directory #{OUTPUT}"
-task :publish => :build do
+desc "transforms web.config"
+msbuild :transformwebconfig do |msb|
+    msb.properties :configuration => CONFIGURATION
+    msb.targets :TransformWebConfig
+    msb.solution = WEBAPP_PROJFILE
+    msb.verbosity = "q"
+end
+
+desc "copies all output files to a directory #{OUTPUT}, ready for xcopy via ftp"
+task :publish => [:build, :transformwebconfig] do
+    #creating dir structure
     Dir.mkdir(OUTPUT)
-    FileUtils.cp_r FileList["src/**/#{CONFIGURATION}/*.dll", "src/**/#{CONFIGURATION}/*.pdb"].exclude(/obj\//).exclude(/.Tests/), OUTPUT
+    Dir.mkdir("#{OUTPUT}/wwwroot")
+    Dir.mkdir("#{OUTPUT}/wwwroot/bin")
+    
+    #copying binaries to /bin dir
+    FileUtils.cp_r FileList["src/**/#{CONFIGURATION}/*.dll",
+        "src/**/#{CONFIGURATION}/*.pdb"]
+        .exclude(/obj\//)
+        .exclude(/.Tests/),
+        "#{OUTPUT}/wwwroot/bin"
+
+    #copying transformed web.config to /wwwroot
+    transformedConfig = "#{WEBAPP_DIR}/obj/#{CONFIGURATION}/TransformWebConfig/transformed/web.config"
+    FileUtils.cp_r transformedConfig, "#{OUTPUT}/wwwroot"
 end
 
 desc "runs MSpec tests"
