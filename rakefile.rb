@@ -61,19 +61,31 @@ desc "copies all output files to a directory #{OUTPUT}, ready for xcopy via ftp"
 task :publish => [:build, :transformwebconfig] do
     #creating dir structure
     Dir.mkdir(OUTPUT)
-    Dir.mkdir("#{OUTPUT}/wwwroot")
-    Dir.mkdir("#{OUTPUT}/wwwroot/bin")
+    Dir.mkdir("#{OUTPUT}/bin")
     
     #copying binaries to /bin dir
     FileUtils.cp_r FileList["src/**/#{CONFIGURATION}/*.dll",
         "src/**/#{CONFIGURATION}/*.pdb"]
         .exclude(/obj\//)
         .exclude(/.Tests/),
-        "#{OUTPUT}/wwwroot/bin"
+        "#{OUTPUT}/bin"
 
-    #copying transformed web.config to /wwwroot
+    # "#{WEBAPP_DIR}/**/." - created files in correct directories as well as in root dir
+    # "#{WEBAPP_DIR}/**" - works as expected (creating files only in subdirs, not duplicating in root)
+    FileUtils.cp_r FileList["#{WEBAPP_DIR}/**"]
+        .exclude(/\/obj/)
+        .exclude(/\/bin/)
+        .exclude(/web\.[^\/]*config/i)
+        .exclude(/T4MVC.*/)
+        .exclude(/\/logs/), "#{OUTPUT}"
+    
+    FileUtils.rm FileList["#{OUTPUT}/**/*.cs"]
+    FileUtils.rm FileList["#{OUTPUT}/**/*.csproj"]
+    FileUtils.rm FileList["#{OUTPUT}/**/*.csproj.user"]
+
+    #copying transformed web.config to
     transformedConfig = "#{WEBAPP_DIR}/obj/#{CONFIGURATION}/TransformWebConfig/transformed/web.config"
-    FileUtils.cp_r transformedConfig, "#{OUTPUT}/wwwroot"
+    FileUtils.cp transformedConfig, "#{OUTPUT}"
 end
 
 desc "runs MSpec tests"
