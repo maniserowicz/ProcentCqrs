@@ -3,10 +3,6 @@ require 'rubygems'
 require 'albacore'
 require 'rake/clean'
 
-def log(msg)
-    puts "***", msg, "***"
-end
-
 # define build variables
 OUTPUT = 'Output'
 CONFIGURATION = 'Release'
@@ -20,24 +16,25 @@ Albacore.configure do |config|
 end
 
 # introduce custom build targets
+
 desc "Compiles solution, runs unit tests and puts all products in #{OUTPUT} dir"
-task :default => [:clean, :build, :publish]
+task :default => [:clean, :build, :test, :publish]
+
+desc "Runs all unit tests"
+task :test => [:mspec]
 
 # configuration for rake/clean task
 CLEAN.include (OUTPUT)
 CLEAN.include (FileList["src/**/#{CONFIGURATION}"])
 
-# 'build' task
 desc "builds solution"
-msbuild :build => :asminfo do |msb|
-    log "starting build"
+msbuild :build => [:clean, :asminfo] do |msb|
     msb.properties :configuration => CONFIGURATION
     msb.targets :Clean, :Rebuild
     msb.solution = SLN_FILE
     msb.verbosity = "q"
 end
 
-# 'asminfo' task
 desc "generates SharedAssemblyInfo.cs file"
 assemblyinfo :asminfo do |asm|
     asm.version = VERSION
@@ -53,4 +50,11 @@ desc "copies all output files to a directory #{OUTPUT}"
 task :publish => :build do
     Dir.mkdir(OUTPUT)
     FileUtils.cp_r FileList["src/**/#{CONFIGURATION}/*.dll", "src/**/#{CONFIGURATION}/*.pdb"].exclude(/obj\//).exclude(/.Tests/), OUTPUT
+end
+
+desc "runs MSpec tests"
+mspec :mspec => :build do |mspec|
+    mspec.command = "tools/Machine.Specifications-Release.0.4.115/mspec-clr4.exe"
+    #mspec.html_output = "./mspec_results.html"
+    mspec.assemblies "src/Tests/bin/#{CONFIGURATION}/ProcentCqrs.Tests.dll"
 end
