@@ -48,11 +48,13 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="IoC.Autofac\IoC.cs" />
     <Compile Include="NHibernate\NHibernateSessionProvider.cs" />
     <Compile Include="NHibernate\NHibernateSessionRegistrationModule.cs" />
     <Compile Include="NHibernate\SessionTransactionExtension.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup\AppStarter.cs" />
     <Compile Include="Startup\IStartupTask.cs" />
     <Compile Include="System\ApplicationTime.cs" />
@@ -70,6 +72,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="NHibernate\_mappings\Trainings\Trainee.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

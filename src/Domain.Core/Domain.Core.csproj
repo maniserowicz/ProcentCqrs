@@ -40,6 +40,9 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Commands\Trainings\AddTrainingCommand.cs" />
     <Compile Include="Commands\Trainings\AssignTraineeToTrainingCommand.cs" />
     <Compile Include="Commands\Users\AddUserCommand.cs" />
@@ -51,9 +54,10 @@
     <Compile Include="Events\Users\UserWasRenamed.cs" />
     <Compile Include="MessageInterfaces.cs" />
     <Compile Include="Notifications\FakeNotifier.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{5C7F4D2A-A702-498D-AFE1-7C249CE9029A}</Project>

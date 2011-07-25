@@ -76,6 +76,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Trainings\Add.cs" />
     <Compile Include="Controllers\Trainings\AssignUser.cs" />
@@ -91,7 +94,6 @@
     <Compile Include="MvcExtensions\CqrsController.cs" />
     <Compile Include="MvcExtensions\HtmlExtensions.cs" />
     <Compile Include="MvcExtensions\WebComponentsRegistrationModule.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="T4MVC.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -148,6 +150,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">

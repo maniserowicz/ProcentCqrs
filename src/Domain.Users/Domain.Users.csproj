@@ -41,7 +41,9 @@
   <ItemGroup>
     <Compile Include="CommandHandlers\AddUserHandler.cs" />
     <Compile Include="CommandHandlers\RenameUserHandler.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -39,9 +39,11 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="CommandHandlers\AddTrainingHandler.cs" />
     <Compile Include="CommandHandlers\AssignTraineeToTrainingHandler.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Trainee.cs" />
     <Compile Include="Training.cs" />
     <Compile Include="TrainingAssignment.cs" />
@@ -55,6 +57,9 @@
       <Project>{8679D5A0-C03C-44B3-B78E-DA93E6948447}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

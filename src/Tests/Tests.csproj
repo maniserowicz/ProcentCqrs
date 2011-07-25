@@ -81,10 +81,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Domain\Trainings\assigning_trainee_to_training.cs" />
     <Compile Include="Domain\Users\adding_a_user.cs" />
     <Compile Include="Domain\Trainings\adding_a_training.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_Structure\command_test.cs" />
     <Compile Include="_Utils\DatabaseHelper.cs" />
     <Compile Include="_Utils\PathUtil.cs" />
@@ -157,6 +159,9 @@
       <Link>hibernate.cfg.xml</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
