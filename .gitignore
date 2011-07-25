@@ -3,6 +3,7 @@
 #####################
 /src/Web.Mvc/logs/
 /src/ProcentCqrsDb/sql
+Output
 
 #####################
 # Visual Studio

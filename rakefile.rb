@@ -8,6 +8,7 @@ def log(msg)
 end
 
 # define build variables
+OUTPUT = 'Output'
 CONFIGURATION = 'Release'
 SLN_FILE = 'src/ProcentCqrs.sln'
 VERSION = '0.1.0.0'
@@ -19,10 +20,11 @@ Albacore.configure do |config|
 end
 
 # introduce custom build targets
-desc "Compiles solution and runs unit tests"
-task :default => [:clean, :build]
+desc "Compiles solution, runs unit tests and puts all products in #{OUTPUT} dir"
+task :default => [:clean, :build, :publish]
 
 # configuration for rake/clean task
+CLEAN.include (OUTPUT)
 CLEAN.include (FileList["src/**/#{CONFIGURATION}"])
 
 # 'build' task
@@ -45,4 +47,10 @@ assemblyinfo :asminfo do |asm|
     asm.description = "Playground for experiments with CQRS in ASP.NET MVC (and some other useful stuff like knockout.js, rake etc...)"
     asm.copyright = "Copyright (C) Maciej Aniserowicz"
     asm.output_file = 'src/SharedAssemblyInfo.cs'
+end
+
+desc "copies all output files to a directory #{OUTPUT}"
+task :publish => :build do
+    Dir.mkdir(OUTPUT)
+    FileUtils.cp_r FileList["src/**/#{CONFIGURATION}/*.dll", "src/**/#{CONFIGURATION}/*.pdb"].exclude(/obj\//).exclude(/.Tests/), OUTPUT
 end
